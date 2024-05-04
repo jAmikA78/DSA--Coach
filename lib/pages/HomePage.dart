@@ -1,11 +1,43 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names, prefer_const_constructors, must_be_immutable
 
-import 'package:dsa_coach/const/data.dart';
-import 'package:dsa_coach/widgets/TopicCard.dart';
+import 'package:dsa_coach/pages/Setting.dart';
+import 'package:dsa_coach/pages/Statictics.dart';
+import 'package:dsa_coach/pages/TopicsListPage.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List _Pages = [
+    Statictics(),
+    TopicsList(),
+    SettingPage(),
+  ];
+
+  int _idx = 1;
+
+  List<NavigationDestination> navigationList = [
+    NavigationDestination(
+      icon: const Icon(Icons.shape_line),
+      selectedIcon: const Icon(Icons.shape_line_outlined),
+      label: "Statictics",
+    ),
+    NavigationDestination(
+      icon: const Icon(Icons.home_max),
+      selectedIcon: const Icon(Icons.home_max_outlined),
+      label: "Topics",
+    ),
+    NavigationDestination(
+      icon: const Icon(Icons.settings),
+      selectedIcon: const Icon(Icons.settings_outlined),
+      label: "Settings",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +45,11 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('DSA  Coach'),
       ),
-      body: ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (BuildContext context, int index) {
-          return TopicCard(idx: index);
-        },
+      body: _Pages[_idx],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _idx,
+        onDestinationSelected: (index) => setState(() => _idx = index),
+        destinations: navigationList,
       ),
     );
   }

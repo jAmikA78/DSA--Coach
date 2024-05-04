@@ -91,13 +91,6 @@ class _ProblemWidgetState extends State<ProblemWidget> {
                   ),
                 ),
               ),
-              Checkbox(
-                  value: (widget.solved == 1) ? true : false,
-                  onChanged: (val) {
-                    setState(() {
-                      widget.solved = (val == true) ? 1 : 0;
-                    });
-                  })
             ],
           ),
         ],
