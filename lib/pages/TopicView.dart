@@ -11,7 +11,10 @@ class TopicView extends StatelessWidget {
   Widget build(BuildContext context) {
     final descriptions = <Widget>[];
     for (int i = 0; i < data[idx]["description"].length; i++) {
-      descriptions.add(Text(data[idx]["description"][i] + '\n'));
+      descriptions.add(Text(
+        data[idx]["description"][i] + '\n',
+        style: TextStyle(fontSize: fontSz - 5),
+      ));
     }
     final yt = <Widget>[];
     for (int i = 0; i < data[idx]["yt"].length; i++) {
@@ -36,7 +39,10 @@ class TopicView extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text(data[idx]["title"]),
+        title: Text(
+          data[idx]["title"],
+          style: TextStyle(fontSize: fontSz + 5),
+        ),
       ),
       body: ListView(
         children: [
@@ -56,7 +62,7 @@ class TopicView extends StatelessWidget {
                 child: Text(
                   "Youtube videos",
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: fontSz + 10,
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                   ),
                 ),
@@ -78,7 +84,7 @@ class TopicView extends StatelessWidget {
                 child: Text(
                   "Topic Problems",
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: fontSz + 10,
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                   ),
                 ),

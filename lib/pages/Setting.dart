@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:dsa_coach/const/data.dart';
 import 'package:flutter/material.dart';
 import 'package:theme_provider/theme_provider.dart';
 
@@ -13,11 +14,32 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        ThemeProvider.controllerOf(context).nextTheme();
-      },
-      child: const Text("Change Theme"),
+    return Column(
+      children: [
+        Slider(
+          value: fontSz,
+          max: 40.0,
+          min: 10.0,
+          divisions: 5,
+          label: fontSz.round().toString(),
+          onChanged: (double value) {
+            setState(() {
+              fontSz = value;
+            });
+          },
+        ),
+        Text('Font Size: $fontSz', style: TextStyle(fontSize: fontSz)),
+        const SizedBox(height: 10),
+        ElevatedButton(
+          onPressed: () {
+            ThemeProvider.controllerOf(context).nextTheme();
+          },
+          child: Text(
+            "Change Theme",
+            style: TextStyle(fontSize: fontSz),
+          ),
+        ),
+      ],
     );
   }
 }

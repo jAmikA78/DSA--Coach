@@ -1,5 +1,7 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, file_names
 
+import 'package:dsa_coach/const/data.dart';
+import 'package:dsa_coach/pages/SolvingView.dart';
 import 'package:flutter/material.dart';
 
 class ProblemWidget extends StatefulWidget {
@@ -34,32 +36,60 @@ class _ProblemWidgetState extends State<ProblemWidget> {
         children: [
           Text(
             widget.title,
-            style: const TextStyle(
-              fontSize: 25,
+            style: TextStyle(
+              fontSize: fontSz,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Row(
+          Column(
             children: [
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Theme.of(context).colorScheme.primary),
-                  child: Text(
-                    "Link",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onPrimary),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Theme.of(context).colorScheme.primary),
+                      child: Text(
+                        "Link",
+                        style: TextStyle(
+                            fontSize: fontSz - 5,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.onPrimary),
+                      ),
+                    ),
                   ),
-                ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Theme.of(context).colorScheme.primary),
+                      child: Text(
+                        "Tutorial",
+                        style: TextStyle(
+                            fontSize: fontSz - 5,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.onPrimary),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              SolvingView(title: widget.title)));
+                },
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.all(10),
@@ -69,24 +99,7 @@ class _ProblemWidgetState extends State<ProblemWidget> {
                   child: Text(
                     "Start Solving",
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onPrimary),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Theme.of(context).colorScheme.primary),
-                  child: Text(
-                    "Tutorial",
-                    style: TextStyle(
-                        fontSize: 18,
+                        fontSize: fontSz - 5,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.onPrimary),
                   ),

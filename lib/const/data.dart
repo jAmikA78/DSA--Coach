@@ -1,3 +1,5 @@
+double fontSz = 25.0;
+
 List data = [
   {
     "title": "Binary search",
