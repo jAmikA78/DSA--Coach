@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 class SolvingView extends StatefulWidget {
   final String title;
-  const SolvingView({required this.title, super.key});
+  final String tutorial;
+  const SolvingView({required this.title, super.key, required this.tutorial});
 
   @override
   State<SolvingView> createState() => _SolvingViewState();
@@ -16,7 +17,9 @@ class _SolvingViewState extends State<SolvingView> {
   late Duration _elapsedTime;
   String _elapsedTimeString = "00:00.00";
   late Timer timer;
-
+  String state = "Thinking now !!";
+  int cnt = 0, nOfWrongs = 0;
+  late Duration thinkingTime, solvingTime;
   @override
   void initState() {
     super.initState();
@@ -52,9 +55,24 @@ class _SolvingViewState extends State<SolvingView> {
     // Reset the stopwatch to zero and update elapsed time
     _stopwatch.reset();
     _updateElapsedTime();
+
+    setState(
+      () {
+        if (cnt == 0) {
+          cnt = 1;
+          state = "Solving now !!";
+        } else if (cnt == 1) {
+          problemsTimes.add(
+            {
+              nOfWrongs: {thinkingTime: solvingTime}
+            },
+          );
+          Navigator.pop(context);
+        }
+      },
+    );
   }
 
-  // Update elapsed time and formatted time string
   void _updateElapsedTime() {
     setState(() {
       _elapsedTime = _stopwatch.elapsed;
@@ -62,7 +80,6 @@ class _SolvingViewState extends State<SolvingView> {
     });
   }
 
-  // Format a Duration into a string (MM:SS.SS)
   String _formatElapsedTime(Duration time) {
     return '${time.inMinutes.remainder(60).toString().padLeft(2, '0')}:${(time.inSeconds.remainder(60)).toString().padLeft(2, '0')}.${(time.inMilliseconds % 1000 ~/ 100).toString()}';
   }
@@ -80,7 +97,6 @@ class _SolvingViewState extends State<SolvingView> {
 
   @override
   Widget build(BuildContext context) {
-    String state = "Thinking now !!";
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -92,13 +108,11 @@ class _SolvingViewState extends State<SolvingView> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // Display elapsed time
               Text(
                 _elapsedTimeString,
                 style: TextStyle(fontSize: fontSz + 10),
               ),
               const SizedBox(height: 20.0),
-              // Start/Stop and Reset buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -113,13 +127,68 @@ class _SolvingViewState extends State<SolvingView> {
                   ElevatedButton(
                     onPressed: _resetStopwatch,
                     child: Text(
-                      'Next',
+                      (cnt == 0 ? 'Next' : 'Finish'),
                       style: TextStyle(fontSize: fontSz),
                     ),
                   ),
                 ],
               ),
             ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Text(
+                nOfWrongs.toString() + (nOfWrongs == 1 ? " wrong" : " wrongs"),
+                style: TextStyle(fontSize: fontSz),
+              ),
+              IconButton(
+                  onPressed: () {
+                    setState(() {
+                      nOfWrongs++;
+                    });
+                  },
+                  style: IconButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    iconSize: fontSz,
+                  ),
+                  icon: const Icon(Icons.plus_one))
+            ],
+          ),
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Tutorial!'),
+                    content: Text(widget.tutorial),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Theme.of(context).colorScheme.primary),
+              child: Text(
+                "Tutorial",
+                style: TextStyle(
+                    fontSize: fontSz - 5,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onPrimary),
+              ),
+            ),
           ),
         ],
       ),

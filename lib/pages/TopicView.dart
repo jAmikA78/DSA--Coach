@@ -47,8 +47,11 @@ class TopicView extends StatelessWidget {
       body: ListView(
         children: [
           Image.asset(data[idx]["img"]),
-          Column(
-            children: descriptions,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: descriptions,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

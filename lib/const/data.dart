@@ -1,4 +1,5 @@
 double fontSz = 25.0;
+List<Map<int, Map<Duration, Duration>>> problemsTimes = [];
 
 List data = [
   {
