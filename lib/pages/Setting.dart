@@ -14,32 +14,37 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Slider(
-          value: fontSz,
-          max: 40.0,
-          min: 10.0,
-          divisions: 5,
-          label: fontSz.round().toString(),
-          onChanged: (double value) {
-            setState(() {
-              fontSz = value;
-            });
-          },
-        ),
-        Text('Font Size: $fontSz', style: TextStyle(fontSize: fontSz)),
-        const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {
-            ThemeProvider.controllerOf(context).nextTheme();
-          },
-          child: Text(
-            "Change Theme",
-            style: TextStyle(fontSize: fontSz),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
+      body: Column(
+        children: [
+          Slider(
+            value: fontSz,
+            max: 40.0,
+            min: 10.0,
+            divisions: 5,
+            label: fontSz.round().toString(),
+            onChanged: (double value) {
+              setState(() {
+                fontSz = value;
+              });
+            },
           ),
-        ),
-      ],
+          Text('Font Size: $fontSz', style: TextStyle(fontSize: fontSz)),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {
+              ThemeProvider.controllerOf(context).nextTheme();
+            },
+            child: Text(
+              "Change Theme",
+              style: TextStyle(fontSize: fontSz),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

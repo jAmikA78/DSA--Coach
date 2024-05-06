@@ -4,6 +4,7 @@ import 'package:dsa_coach/pages/Setting.dart';
 import 'package:dsa_coach/pages/Statictics.dart';
 import 'package:dsa_coach/pages/TopicsListPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -13,43 +14,38 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List _Pages = [
-    Statictics(),
-    TopicsList(),
-    SettingPage(),
-  ];
-
-  int _idx = 1;
-
-  List<NavigationDestination> navigationList = [
-    NavigationDestination(
-      icon: const Icon(Icons.shape_line),
-      selectedIcon: const Icon(Icons.shape_line_outlined),
-      label: "Statictics",
-    ),
-    NavigationDestination(
-      icon: const Icon(Icons.home_max),
-      selectedIcon: const Icon(Icons.home_max_outlined),
-      label: "Topics",
-    ),
-    NavigationDestination(
-      icon: const Icon(Icons.settings),
-      selectedIcon: const Icon(Icons.settings_outlined),
-      label: "Settings",
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('DSA  Coach'),
       ),
-      body: _Pages[_idx],
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _idx,
-        onDestinationSelected: (index) => setState(() => _idx = index),
-        destinations: navigationList,
+      body: TopicsList(),
+      floatingActionButtonLocation: ExpandableFab.location,
+      floatingActionButton: ExpandableFab(
+        type: ExpandableFabType.up,
+        distance: 50,
+        overlayStyle: ExpandableFabOverlayStyle(
+          blur: 5,
+        ),
+        children: [
+          FloatingActionButton.small(
+            heroTag: null,
+            child: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SettingPage()));
+            },
+          ),
+          FloatingActionButton.small(
+            heroTag: null,
+            child: const Icon(Icons.data_exploration),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Statictics()));
+            },
+          ),
+        ],
       ),
     );
   }

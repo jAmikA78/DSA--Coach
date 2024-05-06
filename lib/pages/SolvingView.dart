@@ -53,15 +53,17 @@ class _SolvingViewState extends State<SolvingView> {
   // Reset button callback
   void _resetStopwatch() {
     // Reset the stopwatch to zero and update elapsed time
-    _stopwatch.reset();
-    _updateElapsedTime();
 
     setState(
       () {
         if (cnt == 0) {
+          solvingTime = _stopwatch.elapsed;
           cnt = 1;
           state = "Solving now !!";
+          _stopwatch.reset();
+          _updateElapsedTime();
         } else if (cnt == 1) {
+          thinkingTime = _stopwatch.elapsed;
           problemsTimes.add(
             {
               nOfWrongs: {thinkingTime: solvingTime}
