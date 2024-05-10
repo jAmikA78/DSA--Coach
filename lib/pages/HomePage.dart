@@ -3,7 +3,7 @@
 import 'package:dsa_coach/pages/AddTopic.dart';
 import 'package:dsa_coach/pages/Setting.dart';
 import 'package:dsa_coach/pages/Statictics.dart';
-import 'package:dsa_coach/pages/TopicsListPage.dart';
+import 'package:dsa_coach/widgets/TopicsList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 
@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
       body: TopicsList(),
       floatingActionButtonLocation: ExpandableFab.location,
       floatingActionButton: ExpandableFab(
-        // type: ExpandableFabType.up,
         distance: 100,
         overlayStyle: ExpandableFabOverlayStyle(
           blur: 5,
@@ -40,7 +39,7 @@ class _HomePageState extends State<HomePage> {
           ),
           FloatingActionButton(
             heroTag: null,
-            child: const Icon(Icons.data_exploration),
+            child: const Icon(Icons.bar_chart),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => Statictics()));

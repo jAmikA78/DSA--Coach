@@ -9,7 +9,6 @@ class ProblemWidget extends StatefulWidget {
   final String title;
   final String link;
   final String tutorial;
-  final int difficulty;
   int solved;
 
   ProblemWidget(
@@ -17,7 +16,6 @@ class ProblemWidget extends StatefulWidget {
       required this.title,
       required this.link,
       required this.tutorial,
-      required this.difficulty,
       required this.solved});
 
   @override

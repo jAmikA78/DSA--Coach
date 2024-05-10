@@ -1,7 +1,5 @@
 // ignore_for_file: file_names
 
-import 'dart:convert';
-
 import 'package:dsa_coach/const/data.dart';
 import 'package:dsa_coach/widgets/AddTopicTextArea.dart';
 import 'package:dsa_coach/widgets/AddTopicTextField.dart';
@@ -110,10 +108,10 @@ class _AddTopicFormState extends State<AddTopicForm> {
                     "solved": 0
                   }
                 ];
+                data.add(topicTemp);
+                saveData();
+                Navigator.pop(context);
               }
-              data.add(topicTemp);
-              saveData();
-              Navigator.pop(context);
             },
             child: const Text('Submit'),
           ),

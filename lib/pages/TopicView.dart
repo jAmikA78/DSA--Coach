@@ -37,7 +37,6 @@ class TopicView extends StatelessWidget {
           title: data[idx]["problems"][i]["title"],
           link: data[idx]["problems"][i]["link"],
           tutorial: data[idx]["problems"][i]["tutorial"],
-          difficulty: data[idx]["problems"][i]["difficulty"],
           solved: data[idx]["problems"][i]["solved"]));
     }
     return Scaffold(

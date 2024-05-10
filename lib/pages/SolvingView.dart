@@ -53,7 +53,7 @@ class _SolvingViewState extends State<SolvingView> {
         if (cnt == 0) {
           solvingTime = _stopwatch.elapsed;
           cnt = 1;
-          state = "Solving now !!";
+          state = "Coding time!!";
           _stopwatch.reset();
           _updateElapsedTime();
         } else if (cnt == 1) {
