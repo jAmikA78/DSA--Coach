@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ThemeProvider(
       themes: [
-        AppTheme.light(), // ID = default_light_theme
-        AppTheme.dark(), // ID = default_dark_theme
+        AppTheme.light(),
+        AppTheme.dark(),
         // AppTheme(
         //   id: "light_theme",
         //   description: "My Custom light Theme",

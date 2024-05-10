@@ -32,7 +32,8 @@ class _SettingPageState extends State<SettingPage> {
               });
             },
           ),
-          Text('Font Size: $fontSz', style: TextStyle(fontSize: fontSz)),
+          Text('Font Size: ${fontSz.toInt()}',
+              style: TextStyle(fontSize: fontSz)),
           const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {

@@ -45,12 +45,20 @@ class TopicCard extends StatelessWidget {
                 Text(data[idx]["category"]),
               ],
             ),
-            Image.asset(
-              data[idx]["img"],
-              height: 100,
-              width: 150,
-              fit: BoxFit.fill,
-            ),
+            if (data[idx]['local'] == 1)
+              Image.asset(
+                data[idx]["img"],
+                height: 100,
+                width: 150,
+                fit: BoxFit.fill,
+              ),
+            if (data[idx]['local'] == 0)
+              Image.network(
+                data[idx]["img"],
+                height: 100,
+                width: 150,
+                fit: BoxFit.fill,
+              ),
           ],
         ),
       ),

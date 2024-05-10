@@ -15,13 +15,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "Binary Search",
                 "link": "https://codeforces.com/problemset/problem/1436/C",
                 "tutorial": "use binary search",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -42,13 +42,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "Two pointer",
                 "link": "https://codeforces.com/problemset/problem/381/A",
                 "tutorial": "use Two pointer",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -69,13 +69,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "Number theory",
                 "link": "https://codeforces.com/problemset/problem/26/A",
                 "tutorial": "use Number theory",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -98,13 +98,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "BITMASKS",
                 "link": "https://codeforces.com/problemset/problem/1698/A",
                 "tutorial": "use BITMASKS",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -125,13 +125,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "RECURSION & BACKTRACKING",
                 "link": "https://codeforces.com/problemset/problem/932/B",
                 "tutorial": "use RECURSION & BACKTRACKING",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -153,13 +153,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "DFS",
                 "link": "https://codeforces.com/problemset/problem/292/B",
                 "tutorial": "use DFS",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -181,13 +181,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "BFS",
                 "link": "https://codeforces.com/problemset/problem/520/B",
                 "tutorial": "use BFS",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -209,13 +209,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "Dynamic Programming",
                 "link": "https://codeforces.com/problemset/problem/1881/E",
                 "tutorial": "use Dynamic Programming",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -237,13 +237,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "DP Ranges",
                 "link": "https://codeforces.com/problemset/problem/245/H",
                 "tutorial": "use DP Ranges",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -265,13 +265,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "DP Masking & DP on Digits",
                 "link": "https://codeforces.com/problemset/problem/1036/C",
                 "tutorial": "use DP Masking & DP on Digits",
-                "difficulty": 5,
                 "solved": 0
             }
         ]
@@ -292,13 +292,13 @@
             }
         ],
         "done": 0,
+        "local": 1,
         "total": 0,
         "problems": [
             {
                 "title": "Segment Tree",
                 "link": "https://codeforces.com/problemset/problem/514/D",
                 "tutorial": "use Segment Tree",
-                "difficulty": 5,
                 "solved": 0
             }
         ]

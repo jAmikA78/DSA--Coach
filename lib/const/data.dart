@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 double fontSz = 25.0;
@@ -12,6 +14,40 @@ Future<void> loadData() async {
     final temp = json.decode(response);
     data = temp;
   } catch (error) {
-    print('Error: $error');
+    debugPrint('Error: $error');
   }
 }
+
+Future<void> saveData() async {
+  try {
+    String jsonString = jsonEncode(data);
+
+    File('assets/JSON/data.json').writeAsStringSync(jsonString);
+
+    debugPrint('JSON file created successfully.');
+  } catch (error) {
+    debugPrint('Error: $error');
+  }
+}
+
+var topicTemp = {
+  "title": "",
+  "img": "",
+  "category": "",
+  "description": [""],
+  "yt": [
+    {"title": "", "author": "", "link": ""}
+  ],
+  "done": 0,
+  "local": 0,
+  "total": 0,
+  "problems": [
+    {
+      "title": "",
+      "link": "",
+      "tutorial": "",
+      "difficulty": 0,
+      "solved": 0,
+    }
+  ]
+};

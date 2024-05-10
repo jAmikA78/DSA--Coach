@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:async';
 
 import 'package:dsa_coach/const/data.dart';
@@ -27,10 +29,8 @@ class _SolvingViewState extends State<SolvingView> {
     _elapsedTime = Duration.zero;
     _elapsedTimeString = _formatElapsedTime(_elapsedTime);
 
-    // Create a timer that runs a callback every 100 milliseconds to update UI
     timer = Timer.periodic(const Duration(milliseconds: 100), (Timer timer) {
       setState(() {
-        // Update elapsed time only if the stopwatch is running
         if (_stopwatch.isRunning) {
           _updateElapsedTime();
         }
@@ -38,22 +38,16 @@ class _SolvingViewState extends State<SolvingView> {
     });
   }
 
-  // Start/Stop button callback
   void _startStopwatch() {
     if (!_stopwatch.isRunning) {
-      // Start the stopwatch and update elapsed time
       _stopwatch.start();
       _updateElapsedTime();
     } else {
-      // Stop the stopwatch
       _stopwatch.stop();
     }
   }
 
-  // Reset button callback
   void _resetStopwatch() {
-    // Reset the stopwatch to zero and update elapsed time
-
     setState(
       () {
         if (cnt == 0) {

@@ -1,5 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:dsa_coach/const/data.dart';
 import 'package:dsa_coach/widgets/ProblemWidget.dart';
+import 'package:dsa_coach/widgets/SplitByContainer.dart';
 import 'package:dsa_coach/widgets/YTVideo.dart';
 import 'package:flutter/material.dart';
 
@@ -46,54 +49,19 @@ class TopicView extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.asset(data[idx]["img"]),
+          if (data[idx]['local'] == 1) Image.asset(data[idx]["img"]),
+          if (data[idx]['local'] == 0) Image.network(data[idx]["img"]),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: descriptions,
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                ),
-                child: Text(
-                  "Youtube videos",
-                  style: TextStyle(
-                    fontSize: fontSz + 10,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          SplitByContainer(text: 'Topic Videos'),
           Column(
             children: yt,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                ),
-                child: Text(
-                  "Topic Problems",
-                  style: TextStyle(
-                    fontSize: fontSz + 10,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          SplitByContainer(text: 'Topic Problems'),
           Column(
             children: problems,
           ),
