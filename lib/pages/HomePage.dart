@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, non_constant_identifier_names, prefer_const_constructors, must_be_immutable
+// ignore_for_file: file_names, non_constant_identifier_names, prefer_const_constructors, must_be_immutable, prefer_const_constructors_in_immutables
 
 import 'package:dsa_coach/pages/Setting.dart';
 import 'package:dsa_coach/pages/Statictics.dart';
