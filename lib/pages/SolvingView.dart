@@ -21,7 +21,7 @@ class _SolvingViewState extends State<SolvingView> {
   late Timer timer;
   String state = "Thinking now !!";
   int cnt = 0, nOfWrongs = 0;
-  late Duration thinkingTime, solvingTime;
+  Duration thinkingTime = const Duration(), solvingTime = const Duration();
   @override
   void initState() {
     super.initState();
@@ -51,18 +51,15 @@ class _SolvingViewState extends State<SolvingView> {
     setState(
       () {
         if (cnt == 0) {
-          solvingTime = _stopwatch.elapsed;
+          thinkingTime = _elapsedTime;
           cnt = 1;
           state = "Coding time!!";
           _stopwatch.reset();
           _updateElapsedTime();
         } else if (cnt == 1) {
-          thinkingTime = _stopwatch.elapsed;
-          problemsTimes.add(
-            {
-              nOfWrongs: {thinkingTime: solvingTime}
-            },
-          );
+          solvingTime = _elapsedTime;
+          problemsTimes
+              .add(solvedProblemData(nOfWrongs, thinkingTime, solvingTime));
           Navigator.pop(context);
         }
       },
@@ -131,26 +128,30 @@ class _SolvingViewState extends State<SolvingView> {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Text(
-                nOfWrongs.toString() + (nOfWrongs == 1 ? " wrong" : " wrongs"),
-                style: TextStyle(fontSize: fontSz),
-              ),
-              IconButton(
-                  onPressed: () {
-                    setState(() {
-                      nOfWrongs++;
-                    });
-                  },
-                  style: IconButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    iconSize: fontSz,
-                  ),
-                  icon: const Icon(Icons.plus_one))
-            ],
-          ),
+          (cnt == 1)
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text(
+                      nOfWrongs.toString() +
+                          (nOfWrongs == 1 ? " wrong" : " wrongs"),
+                      style: TextStyle(fontSize: fontSz),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          setState(() {
+                            nOfWrongs++;
+                          });
+                        },
+                        style: IconButton.styleFrom(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          iconSize: fontSz,
+                        ),
+                        icon: const Icon(Icons.plus_one))
+                  ],
+                )
+              : const SizedBox(height: 25),
           GestureDetector(
             onTap: () {
               showDialog(

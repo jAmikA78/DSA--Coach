@@ -110,6 +110,7 @@ class _AddTopicFormState extends State<AddTopicForm> {
                 ];
                 data.add(topicTemp);
                 saveData();
+
                 Navigator.pop(context);
               }
             },

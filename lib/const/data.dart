@@ -5,7 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 double fontSz = 25.0;
-List<Map<int, Map<Duration, Duration>>> problemsTimes = [];
+
+class solvedProblemData {
+  late int wrongs;
+  late Duration solveTime;
+  late Duration thinkTime;
+
+  solvedProblemData(this.wrongs, this.solveTime, this.thinkTime);
+}
+
+List<solvedProblemData> problemsTimes = [];
 
 List data = [];
 Future<void> loadData() async {

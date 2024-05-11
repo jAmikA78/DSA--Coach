@@ -4,9 +4,14 @@ import 'package:dsa_coach/const/data.dart';
 import 'package:dsa_coach/widgets/TopicCard.dart';
 import 'package:flutter/material.dart';
 
-class TopicsList extends StatelessWidget {
+class TopicsList extends StatefulWidget {
   const TopicsList({super.key});
 
+  @override
+  State<TopicsList> createState() => _TopicsListState();
+}
+
+class _TopicsListState extends State<TopicsList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

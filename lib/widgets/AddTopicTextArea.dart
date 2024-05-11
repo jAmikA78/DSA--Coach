@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, file_names
 
 import 'package:flutter/material.dart';
 import 'package:text_area/text_area.dart';
@@ -21,7 +21,6 @@ class _AddTopicTextAreaState extends State<AddTopicTextArea> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(widget.labelText),
         TextArea(

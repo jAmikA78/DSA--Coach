@@ -1,6 +1,8 @@
 // ignore_for_file: file_names, no_leading_underscores_for_local_identifiers
 
 import 'package:dsa_coach/const/data.dart';
+import 'package:dsa_coach/widgets/SplitByContainer.dart';
+import 'package:dsa_coach/widgets/StaticticsCard.dart';
 import 'package:flutter/material.dart';
 
 class Statictics extends StatefulWidget {
@@ -11,78 +13,59 @@ class Statictics extends StatefulWidget {
 }
 
 class _StaticticsState extends State<Statictics> {
-  int avergeSolve = 0;
-  int avergeThink = 0;
-  int calcThinkingAverage() {
-    int _mins = 0;
-    for (int i = 0; i < problemsTimes.length; i++) {
-      _mins += problemsTimes[i].values.first.values.first.inMinutes;
-    }
-    if (problemsTimes.isEmpty) return 0;
-    _mins = _mins ~/ problemsTimes.length;
-    return _mins;
-  }
-
-  int calcSolvingAverage() {
-    int _mins = 0;
-    for (int i = 0; i < problemsTimes.length; i++) {
-      _mins += problemsTimes[i].values.first.values.last.inMinutes;
-    }
-    if (problemsTimes.isEmpty) return 0;
-    _mins = _mins ~/ problemsTimes.length;
-    return _mins;
-  }
-
   @override
   Widget build(BuildContext context) {
-    avergeSolve = calcSolvingAverage();
-    avergeThink = calcThinkingAverage();
+    int avergeSolve = 0;
+    int avergeThink = 0;
+    int nOfWrongs = 0;
+    int nOfSolved = problemsTimes.length;
+    for (int i = 0; i < problemsTimes.length; i++) {
+      avergeSolve += problemsTimes[i].solveTime.inMinutes;
+      avergeThink += problemsTimes[i].thinkTime.inMinutes;
+      nOfWrongs += problemsTimes[i].wrongs;
+    }
+    if (nOfSolved != 0) {
+      avergeSolve = avergeSolve ~/ nOfSolved;
+      avergeThink = avergeThink ~/ nOfSolved;
+    }
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Statistics'),
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Statistics",
-                style: TextStyle(
-                  fontSize: fontSz + 10,
-                  fontWeight: FontWeight.bold,
-                ),
+      appBar: AppBar(
+        title: const Text('Statistics'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          SplitByContainer(text: 'Problems data'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              StaticticsCard(
+                title: 'Problems solved',
+                value: nOfSolved,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "${problemsTimes.length} Problems solved",
-                style: TextStyle(
-                  fontSize: fontSz - 5,
-                ),
+              StaticticsCard(
+                title: 'Numper of wrongs',
+                value: nOfWrongs,
+              )
+            ],
+          ),
+          SplitByContainer(text: 'Average Time'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              StaticticsCard(
+                title: 'Solving Time',
+                value: avergeSolve,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Average Thinking Time: $avergeThink mins",
-                style: TextStyle(
-                  fontSize: fontSz - 5,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Average Solving Time: $avergeSolve mins",
-                style: TextStyle(
-                  fontSize: fontSz - 5,
-                ),
-              ),
-            ),
-          ],
-        ));
+              StaticticsCard(
+                title: 'Thinking Time',
+                value: avergeThink,
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
