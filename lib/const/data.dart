@@ -6,15 +6,15 @@ import 'package:flutter/services.dart';
 
 double fontSz = 25.0;
 
-class solvedProblemData {
+class SolvedProblemData {
   late int wrongs;
   late Duration solveTime;
   late Duration thinkTime;
 
-  solvedProblemData(this.wrongs, this.solveTime, this.thinkTime);
+  SolvedProblemData(this.wrongs, this.solveTime, this.thinkTime);
 }
 
-List<solvedProblemData> problemsTimes = [];
+List<SolvedProblemData> problemsTimes = [];
 
 List data = [];
 Future<void> loadData() async {

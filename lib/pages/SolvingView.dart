@@ -59,7 +59,7 @@ class _SolvingViewState extends State<SolvingView> {
         } else if (cnt == 1) {
           solvingTime = _elapsedTime;
           problemsTimes
-              .add(solvedProblemData(nOfWrongs, thinkingTime, solvingTime));
+              .add(SolvedProblemData(nOfWrongs, thinkingTime, solvingTime));
           Navigator.pop(context);
         }
       },

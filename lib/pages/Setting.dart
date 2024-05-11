@@ -18,8 +18,22 @@ class _SettingPageState extends State<SettingPage> {
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      body: Column(
+      body: ListView(
         children: [
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.settings,
+                size: 200,
+              ),
+            ],
+          ),
+          Text(
+            'Font Size: ${fontSz.toInt()}',
+            style: const TextStyle(fontSize: 30),
+          ),
+          const SizedBox(height: 10),
           Slider(
             value: fontSz,
             max: 40.0,
@@ -32,18 +46,22 @@ class _SettingPageState extends State<SettingPage> {
               });
             },
           ),
-          Text('Font Size: ${fontSz.toInt()}',
-              style: TextStyle(fontSize: fontSz)),
-          const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {
               ThemeProvider.controllerOf(context).nextTheme();
             },
-            child: Text(
+            child: const Text(
               "Change Theme",
-              style: TextStyle(fontSize: fontSz),
+              style: TextStyle(fontSize: 30),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Text(
+              'It is an your own Coach.\nThe main target of our project is helping you to improve your programming skills  by help you learning new programming topics in Data Structure and Algorithems (DSA).',
+              style: TextStyle(fontSize: fontSz),
+            ),
+          )
         ],
       ),
     );
