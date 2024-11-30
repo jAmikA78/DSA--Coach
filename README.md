@@ -1,16 +1,15 @@
-# dsa_coach
+# DSA coach
+## A flutter project to help Data structure and Algorithms trainers
+## project provide the following
+- DSA topics Materials like:
+  - Blogs about each topic.
+  - An tutorial about each topic.
+  - Videos explain each topic.
+  - Problems of each topic.
+- A problem solving and competitive programming tracer.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Credit to team who developed this project
+- Ahmed Ibrahim (Github)[https://github.com/jAmikA78]
+- Ahmed Abbas (Github)[https://github.com/3bbaas]
+- Mostafa Khatab (Github)[https://github.com/Mostafa-khatab]
+- Ahmed Hammad (Github)[https://github.com/Ahmed-Hammaad]

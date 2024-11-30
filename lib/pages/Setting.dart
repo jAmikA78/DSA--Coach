@@ -46,13 +46,16 @@ class _SettingPageState extends State<SettingPage> {
               });
             },
           ),
-          ElevatedButton(
-            onPressed: () {
-              ThemeProvider.controllerOf(context).nextTheme();
-            },
-            child: const Text(
-              "Change Theme",
-              style: TextStyle(fontSize: 30),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: ElevatedButton(
+              onPressed: () {
+                ThemeProvider.controllerOf(context).nextTheme();
+              },
+              child: const Text(
+                "Change Theme",
+                style: TextStyle(fontSize: 30),
+              ),
             ),
           ),
           Padding(
