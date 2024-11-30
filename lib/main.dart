@@ -20,16 +20,6 @@ class MyApp extends StatelessWidget {
       themes: [
         AppTheme.light(),
         AppTheme.dark(),
-        // AppTheme(
-        //   id: "light_theme",
-        //   description: "My Custom light Theme",
-        //   data: lightTheme(context),
-        // ),
-        // AppTheme(
-        //   id: "dark_theme",
-        //   description: "My Custom dark Theme",
-        //   data: darkTheme(context),
-        // ),
       ],
       child: ThemeConsumer(
         child: Builder(
