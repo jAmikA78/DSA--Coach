@@ -9,7 +9,7 @@
 - A problem solving and competitive programming tracer.
 
 ## Credit to team who developed this project
-- Ahmed Ibrahim (Github)[https://github.com/jAmikA78]
-- Ahmed Abbas (Github)[https://github.com/3bbaas]
-- Mostafa Khatab (Github)[https://github.com/Mostafa-khatab]
-- Ahmed Hammad (Github)[https://github.com/Ahmed-Hammaad]
+- Ahmed Ibrahim [Github](https://github.com/jAmikA78)
+- Ahmed Abbas [Github](https://github.com/3bbaas)(Github)
+- Mostafa Khatab [Github](https://github.com/Mostafa-khatab)
+- Ahmed Hammad [Github](https://github.com/Ahmed-Hammaad)
