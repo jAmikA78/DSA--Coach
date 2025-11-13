@@ -1,7 +1,6 @@
 import 'package:dsa_coach/const/data.dart';
 import 'package:dsa_coach/pages/HomePage.dart';
-// import 'package:dsa_coach/theme/dark/dark.dart';
-// import 'package:dsa_coach/theme/light/light.dart';
+
 import 'package:flutter/material.dart';
 import 'package:theme_provider/theme_provider.dart';
 
@@ -20,6 +19,17 @@ class MyApp extends StatelessWidget {
       themes: [
         AppTheme.light(),
         AppTheme.dark(),
+        // custom theme instant of built in themes
+        // AppTheme(
+        //   id: "light_theme",
+        //   description: "My Custom light Theme",
+        //   data: lightTheme(context),
+        // ),
+        // AppTheme(
+        //   id: "dark_theme",
+        //   description: "My Custom dark Theme",
+        //   data: darkTheme(context),
+        // ),
       ],
       child: ThemeConsumer(
         child: Builder(
