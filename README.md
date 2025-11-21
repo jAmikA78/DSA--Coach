@@ -156,12 +156,6 @@ MIT License
 
 If you encounter any issues or have suggestions for improvement, please open an issue on our [GitHub repository](https://github.com/jAmikA78/DSA--Coach/issues).
 
-## Acknowledgments
-
-- Flutter team for the amazing framework
-- All contributors and users who help improve DSA Coach
-- The open-source community for the packages used in this project
-
 ---
 
 **Happy Learning! 🚀**
